@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crud-img';
+
+  home_view: boolean = true;
+
+  in_home(){
+    this.home_view = false;
+  }
 }

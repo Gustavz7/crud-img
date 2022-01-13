@@ -1,0 +1,27 @@
+<div class="form">
+    <mat-card>
+        <mat-card-title>Ingresar nueva imagen</mat-card-title>
+        <mat-card-content>
+            <form class="form-place">
+                <div class="form-img">
+                   
+                </div>
+                <div class="form-text">
+                    <mat-form-field appearance="fill">
+                        <mat-label> Titulo imagen</mat-label>
+                        <input matInput type="text" placeholder="Ingresa el titulo" [formControl]="titleControl">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label> Descripcion imagen</mat-label>
+                        <textarea matInput placeholder="Ingresa la descripcion"></textarea>
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card-content>
+        <img mat-card-image>
+        <mat-card-actions>
+            <button (click)="getTitle($event)" [disabled]="titleControl.invalid">Subir imagen</button>
+            <button>Cancelar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
