@@ -1,1 +1,39 @@
-<p>summary works!</p>
+<div class="summary">
+  <mat-card>
+    <mat-card-title> Detalles de la imagen </mat-card-title>
+    <mat-card-content>
+      <div class="img-section">
+        <div>
+          <img src="../../../assets/loader.gif" width="200px" />
+        </div>
+      </div>
+
+      <div class="text-section">
+        <div *ngFor="let key of objectKeys(imgn)">
+          <b>{{ key }}</b>
+          <p>{{ imgn[key] }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- ! Pendiente: Implementar ruta de edicion con la vista correspondiente -->
+      <button mat-raised-button class="mat-edit" (click)="GoToeditImg()">
+        Editar
+      </button>
+      <!-- ! Pendiente: Implementar Modal de confirmacion para DELETE -->
+      <button mat-raised-button class="mat-delete" (click)="deleteImg()">
+        Borrar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #noData>
+  <mat-card>
+    <mat-card-content>
+      <p>no se que pasó bro sorry</p>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+

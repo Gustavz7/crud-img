@@ -1,0 +1,29 @@
+.summary{
+    margin-top: 20px;
+}
+.text-section{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+}
+mat-card{
+    color: white;
+    background-color: #3e4b5f;
+
+
+}
+mat-card-content{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.mat-delete{
+    background-color: rgb(201, 29, 29);
+}
+.mat-edit{
+    background-color: rgb(255, 239, 16);
+}

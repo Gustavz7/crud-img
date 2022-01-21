@@ -1,0 +1,11 @@
+<h1 mat-dialog-title> Confirmación</h1>
+<div mat-dialog-content>
+  <p>¿Estas seguro de eliminar esta imagen?</p>
+  <p>id: {{data.id}}</p>
+  <p>id: {{data.veredicto}}</p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">No Thanks</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+</div>

@@ -1,17 +1,17 @@
 <p>
     <mat-toolbar class="toolbar">
-        <button mat-button routerLink="" class="home-link">
+        <button mat-button routerLink="" class="home-link" routerLink="/">
             <span class="toolbar-title">{{title}}</span>
             <mat-icon>code</mat-icon>
         </button>
 
         <span class="example-spacer"></span>
 
-        <button mat-raised-button class="upload-btn" routerLink="/create_photo" routerLinkActive="active" *ngIf="home_view" (click)="in_home()">
+        <button mat-raised-button class="upload-btn" routerLink="/create-photo" *ngIf="!edit_view()">
             Subir imagen
             <mat-icon>cloud_upload</mat-icon>
         </button>
-        <button mat-raised-button class="back-btn" routerLink="" (click)="in_home()">
+        <button mat-raised-button class="back-btn" routerLink="" *ngIf="home_view()">
             <mat-icon>arrow_back_ios</mat-icon>
             Volver
         </button>
