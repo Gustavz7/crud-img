@@ -1,24 +1,73 @@
+.cards-container{
+  display: flex;
+  justify-content: center;
+}
 .card-place {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin: 2.5% 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-self: center;
+  gap: 20px;
+  justify-content: center;
+
 }
 
 mat-card {
-    width: 200px;
-    height: 300px;
-    margin: 10px;
+  width: 200px;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  background-color: #3e4b5f;
+  color: white;
+}
+mat-card:hover {
+  box-shadow: 0 0 15px rgba(189, 189, 189, 0.8);
+  cursor: pointer;
 }
 
-@media(max-width: 720px) {
-    mat-card {
-        width: 150px;
-        height: auto;
-    }
+@media (max-width: 720px) {
+  mat-card {
+
+  }
 }
 
 mat-card-content {
-    display: flex;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+mat-card-content img {
+  height: 240px;
+  width: auto;
+  margin-bottom: 20px;
+  object-fit: contain;
+  margin-bottom: 0;
+  margin-bottom: 5px;
+}
+.img-title {
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+.card-noImg {
+  width: 600px;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.card-content {
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+}
+.noImg-text {
+  font-size: 25px;
 }

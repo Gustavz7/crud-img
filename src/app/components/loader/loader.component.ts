@@ -9,7 +9,7 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 export class LoaderComponent implements OnInit {
 
-  show: boolean = false;
+  show: boolean = true;
 
   constructor(private _router: Router) { }
 

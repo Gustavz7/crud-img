@@ -1,0 +1,85 @@
+.summary {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
+.img {
+  height: auto;
+  width: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+  max-height: 300px;
+  max-width: 500px;
+
+}
+
+.img-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 2%;
+  max-height: 60%;
+  margin: auto;
+  max-width: 80%;
+}
+.text-section {
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-width: 80%;
+}
+mat-card {
+  color: white;
+  background-color: #3e4b5f;
+  max-height: 60%;
+}
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px 10px;
+  margin-bottom: 10px;
+}
+.card-content-div {
+  margin-left: 10px;
+}
+
+.mat-delete {
+  background-color: rgb(201, 29, 29);
+}
+.mat-edit {
+  background-color: rgb(255, 239, 16);
+}
+.btn-cancelar {
+  background-color: rgb(201, 29, 29);
+}
+.btn-borrar {
+  background-color: rgb(255, 239, 16);
+}
+
+@media (max-width: 1032px) {
+  mat-card-content {
+    flex-direction: column;
+  }
+  .img-section {
+    margin-bottom: 5%;
+  }
+  .img {
+    margin-right: 0;
+  }
+}
+
+.mat-download {
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.mat-download:hover {
+  background-color: rgba(139, 139, 139, 0.4);
+
+
+}
+.mat-download a {
+  color: white;
+  text-decoration: none;
+}
