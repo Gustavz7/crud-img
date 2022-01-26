@@ -1,24 +1,88 @@
-<p>
-    <mat-toolbar class="toolbar">
-        <button mat-button routerLink="" class="home-link" routerLink="/">
-            <span class="toolbar-title">{{title}}</span>
-            <mat-icon>code</mat-icon>
-        </button>
+<mat-toolbar class="toolbar">
+  <button mat-button routerLink="" class="home-link">
+    <span class="toolbar-title">{{ title }}</span>
+    <mat-icon>code</mat-icon>
+  </button>
 
-        <span class="example-spacer"></span>
+  <button mat-button class="toolbar-item">
+    <a
+      href="http://localhost:8080/swagger-ui.html#/file-controller"
+      target="_blank"
+    >
+      Docs Api Rest</a
+    >
+  </button>
 
-        <button mat-raised-button class="upload-btn" routerLink="/create-photo" *ngIf="!edit_view()">
-            Subir imagen
-            <mat-icon>cloud_upload</mat-icon>
-        </button>
-        <button mat-raised-button class="back-btn" routerLink="" *ngIf="home_view()">
-            <mat-icon>arrow_back_ios</mat-icon>
-            Volver
-        </button>
+  <span class="example-spacer toolbar-item"></span>
 
-    </mat-toolbar>
-</p>
-<div class="content">
-    <app-loader></app-loader>
-    <router-outlet></router-outlet>
-</div>
+  <button
+    mat-raised-button
+    class="upload-btn toolbar-item"
+    routerLink="/create-photo"
+    *ngIf="!edit_view()"
+  >
+    Subir imagen
+    <mat-icon>cloud_upload</mat-icon>
+  </button>
+  <button mat-raised-button class="back-btn toolbar-item" routerLink="" *ngIf="home_view()">
+    <mat-icon>arrow_back</mat-icon>
+    Volver
+  </button>
+</mat-toolbar>
+
+<button
+  mat-fab
+  class="button-tools"
+  mat-raised-button
+  (click)="sidenav.toggle()"
+  color="mat-tools"
+>
+  <mat-icon>storage</mat-icon>
+</button>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <div class="sidenav-item-container">
+      <button class="sidenav-item" routerLink="/">
+        <span class="toolbar-title">Home</span>
+        <mat-icon class="side-nav-ico">home</mat-icon>
+
+      </button>
+      <span class="sidenav-divider"></span>
+      <button class="sidenav-item">
+        <a
+          href="http://localhost:8080/swagger-ui.html#/file-controller"
+          target="_blank"
+        >
+          Docs Api Rest</a
+        >
+        <mat-icon>library_books</mat-icon>
+      </button>
+      <span class="sidenav-divider"></span>
+
+      <button
+        class="sidenav-item"
+        routerLink="/create-photo"
+        *ngIf="!edit_view()"
+      >
+        Subir imagen
+        <mat-icon>cloud_upload</mat-icon>
+      </button>
+      <span class="sidenav-divider"></span>
+
+      <button class="sidenav-item" routerLink="" *ngIf="home_view()">
+        <mat-icon>arrow_back</mat-icon>
+        Volver
+        
+      </button>
+      <span class="sidenav-divider" *ngIf="home_view()"></span>
+     
+
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <app-loader></app-loader>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -21,11 +21,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TestingComponent } from './components/testing/testing.component';
-import { EditComponent } from './components/edit/edit.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatDialogClose } from '@angular/material/dialog';
 import { DeleteDialogComponent } from './components/summary/summary.component';
+import {MatRippleModule} from '@angular/material/core';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { DeleteDialogComponent } from './components/summary/summary.component';
     LoaderComponent,
     PageNotFoundComponent,
     TestingComponent,
-    EditComponent,
     DeleteDialogComponent
   ],
   imports: [
@@ -54,6 +54,10 @@ import { DeleteDialogComponent } from './components/summary/summary.component';
     HttpClientModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatRippleModule,
+    MatBadgeModule,
+    MatSidenavModule
+
   ],
   providers: [
 

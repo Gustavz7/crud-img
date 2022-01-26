@@ -1,43 +1,110 @@
-.content{
-    width: 100%;
-    height: auto;
-}
-
 .example-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .toolbar {
-    color: white;
-    background: #536976;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #292E49, #536976);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #292E49, #536976);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: white;
+  background: #536976;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #292e49, #536976);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #292e49, #536976);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-mat-toolbar{
-    padding: 0 3rem;
-}
-.home-link{
-    width: auto;
-    font-size: 25px;
+.home-link {
+  width: auto;
+  font-size: 25px;
 }
 
 .upload-btn {
-    color: white;
-    background-color: green;
-    margin-right: 1rem;
+  color: white;
+  background-color: green;
 }
 
 .content {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 90%;
+  height: auto;
+  margin: 20px auto;
+
 }
-.back-btn{
-    background-color: seashell;
+.back-btn {
+  margin-left: 1rem;
+  background-color: seashell;
+}
+
+.toolbar-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.button-tools {
+  display: none;
+  position: fixed;
+  z-index: 15;
+  background-color: #2a2f4a;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 4rem;
+  height: 4rem;
+  bottom: 3rem;
+  right: 3.5rem;
+}
+.button-tools:hover {
+  background-color: #3b4164;
+}
+mat-toolbar {
+  padding: 0 2.5rem;
+}
+mat-sidenav-container {
+  background-color: transparent;
+}
+mat-sidenav,
+mat-sidenav-content {
+  padding: 1 rem;
+  width: 100%;
+}
+
+mat-sidenav {
+  width: 60%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.sidenav-item-container {
+  display: flex;
+  flex-direction: column;
+}
+.sidenav-item {
+  text-align: center;
+  color: white;
+  height: 4rem;
+  font-size: 20px;
+  background-color: transparent;
+  border:none;
+}
+.sidenav-item:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.sidenav-item a {
+  color: white;
+  text-decoration: none;
+}
+.sidenav-divider{
+  height: 2px;
+  width: 80%;
+  background-color: white;
+  margin: 0 auto;
+}
+.side-nav-ico{
+  right: 0;
+}
+@media (max-width: 620px) {
+  .button-tools {
+    display: block;
+  }
+  .toolbar-item {
+    display: none;
+  }
 }

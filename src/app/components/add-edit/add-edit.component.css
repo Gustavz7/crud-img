@@ -69,6 +69,12 @@ mat-card {
   background-color: rgb(180, 0, 0);
   color: white;
 }
+.mat-clear-btn {
+  bottom: 0;
+  margin-left: 10px;
+  background-color: rgb(136, 136, 136);
+  color: black;
+}
 
 mat-card-actions {
   height: auto;
@@ -79,4 +85,33 @@ mat-card-content {
 }
 .progreso-box {
   margin: 0 20px;
+}
+
+@media (max-width: 720px) {
+  mat-card-content {
+    margin: 10px 0;
+  }
+  .form-place {
+    flex-direction: column;
+  justify-content: center;
+  min-height: 250px;
+  }
+  .form-img{
+    margin: 0;
+    padding: 0;
+  }
+  .form-text{
+    margin: 10px 0;
+    padding: 0;
+    width: auto;
+  }
+  
+  .mat-back-btn {
+    margin: 0;
+    margin-top: 10px;
+
+  }
+  .form-actions{
+    margin-top: 10px;
+  }
 }

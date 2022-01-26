@@ -1,22 +1,23 @@
-<div class="card-place" *ngIf="fileInfos; else noImages">
-  <mat-card
-    *ngFor="let file of fileInfos |async"
-    (click)="goToDetails(file)"
-    routerLink="/summary-photo"
+<div class="cards-container">
+  <div
+    
+    class="card-place"
+    *ngIf="fileInfos.length !== 0; else noImages"
   >
-    <mat-card-content>
-      <img src="{{file.url}}" alt="{{ file.name }}"/>
-      <p class="img-title">id: {{file.id}} - {{ file.name }}</p>
-    </mat-card-content>
-
-  </mat-card>
+    <mat-card
+    matRipple
+    
+      *ngFor="let file of fileInfos"
+      (click)="goToDetails(file.id)"
+      routerLink="/summary-photo"
+    >
+      <mat-card-content>
+        <img src="{{ file.url }}" alt="{{ file.name }}" />
+        <p class="img-title">id: {{ file.id }} - {{ file.name }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <ng-template #noImages class="card-place">
+    <app-loader></app-loader>
+  </ng-template>
 </div>
-<ng-template #noImages class="card-place">
-  <mat-card class="card-noImg">
-    <mat-card-content>
-      <div class="card-content">
-        <p class="noImg-text">No has subido ninguna imagen aún, Sube una!</p>
-      </div>
-    </mat-card-content>
-  </mat-card>
-</ng-template>

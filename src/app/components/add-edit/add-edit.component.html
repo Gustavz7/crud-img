@@ -1,74 +1,125 @@
 <div class="form">
   <mat-card>
-    <mat-card-title *ngIf="!id; else addView">Ingresar nueva imagen</mat-card-title>
+    <mat-card-title *ngIf="!id; else addView"
+      >Ingresar nueva imagen</mat-card-title
+    >
     <ng-template #addView>
-      <mat-card-title>{{title}}</mat-card-title>
+      <mat-card-title>{{ title }}</mat-card-title>
     </ng-template>
     <mat-card-content>
-      <form class="form-place" novalidate #userForm="ngForm" [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <form
+        class="form-place"
+        novalidate
+        #userForm="ngForm"
+        [formGroup]="uploadForm"
+        (ngSubmit)="onSubmit()"
+      >
         <div class="form-img">
-          <div class="img-preview" *ngIf="img_ready; else selectedImg">
+          <div class="img-preview" *ngIf="img_ready; else NoImgSelected">
             <img
               class="img"
-              src="https://www.freeiconspng.com/uploads/success-icon-10.png"
+              src="../../../assets/selected_img.png"
               alt="Success.ico"
             />
           </div>
 
-          <ng-template #selectedImg>
+          <ng-template #NoImgSelected>
             <div class="img-preview">
               <img
                 class="img"
-                src="https://www.freeiconspng.com/uploads/upload-icon-22.png"
-                alt="Upload Files Free"
+                src="../../../assets/upload.png"
+                alt="Upload.png"
               />
             </div>
           </ng-template>
           <label for="formFile" class="form-label">Seleccionar Imagen</label>
           <input
+            #fileInput
             class="form-control"
             type="file"
             id="formFile"
             (change)="onFileSelect($event)"
-            accept="image/png, image/jpeg, image/jgp"
+            accept="image/png, image/jpeg, image/jgp, image/gif"
             name="img_input"
           />
         </div>
 
         <div class="form-text">
-          <mat-form-field appearance="outline">
+          <mat-form-field hintLabel="Max 30 caracteres" appearance="outline">
             <mat-label> Titulo imagen</mat-label>
-            <input matInput type="text" placeholder="Titulo" name="title_input" formControlName="title" required/>
+            <input
+              matInput
+              type="text"
+              name="title_input"
+              formControlName="title"
+              maxlength="30"
+              placeholder="Ingresa el titulo"
+              
+              required
+              #titleInput
+            />
+            <mat-hint align="end">{{titleInput.value?.length || 0}}/30</mat-hint>
           </mat-form-field>
-          
-          <mat-form-field appearance="outline">
+
+          <mat-form-field hintLabel="Max 90 caracteres" appearance="outline">
             <mat-label> Descripcion imagen</mat-label>
-            <textarea matInput placeholder="Descripcion" name="description_input" formControlName="description" required> </textarea>
+            <textarea
+              matInput
+              placeholder="Descripcion"
+              name="description_input"
+              formControlName="description"
+              required
+              maxlength="90"
+              #DescriptionInput
+            >
+            </textarea>
+            <mat-hint align="end">{{DescriptionInput.value?.length || 0}}/90</mat-hint>
+
           </mat-form-field>
-          
+
           <div class="form-actions">
             <button
-            mat-raised-button
-            color="success-btn"
-            [disabled]="!formIsReady"
-            type="submit"
-          >
-            Guardar
-          </button>
-          <button mat-raised-button color="back-btn" routerLink="">Cancelar</button>
+              mat-raised-button
+              color="success-btn"
+              [disabled]="!uploadForm.valid"
+              type="submit"
+            >
+              Guardar
+            </button>
+            <button
+              mat-raised-button
+              color="clear-btn"
+              type="button"
+              (click)="resetForm()"
+              [disabled]="!uploadForm.value.image"
+              
+            >
+            <mat-icon>delete_outline</mat-icon>
+
+            </button>
+            <button
+              mat-raised-button
+              color="back-btn"
+              type="button"
+              routerLink=""
+              *ngIf="id"
+            >
+              Cancelar
+            </button>
+            
           </div>
         </div>
       </form>
-      
     </mat-card-content>
     <mat-card-actions>
       <div class="progreso-box">
         <div *ngIf="isUploading" class="alert alert-dark mb-2 p-1" role="alert">
-          Status: <b>{{ status }}</b> 
+          Status: <b>{{ status }}</b>
           <div *ngIf="isUploading" class="progress mt-2">
             <div
               class="progress-bar-animated progress-bar bg-success progress-bar-striped"
               role="progressbar"
+              *ngIf="!errEvent"
               attr.aria-valuenow="{{ progress }}"
               aria-valuemin="0"
               aria-valuemax="100"
@@ -76,6 +127,15 @@
             >
               {{ progress }}%
             </div>
+            <div
+              class="progress-bar-animated progress-bar bg-danger progress-bar-striped"
+              role="progressbar"
+              style="width: 100%"
+              aria-valuenow="100"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              *ngIf="errEvent"
+            ></div>
           </div>
         </div>
       </div>

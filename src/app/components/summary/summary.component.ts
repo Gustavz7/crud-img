@@ -16,16 +16,15 @@ export class SummaryComponent implements OnInit {
   ) {}
 
   id: number | string;
-  public imgn = []; //almacen de los datos del registro
-  objectKeys = Object.keys; //objeto que nos permitira iterar un [Object Object]
+  public imgn = []; //almacena de los datos del registro
+
 
   //TODO  HTTP GET INFO
   getInfoImg() {
-    this._uploadFileService
-      .getPosts(this.id)
-      .subscribe((data) => (this.imgn = data));
+    this._uploadFileService.getPosts(this.id).subscribe((data) => {
+      this.imgn.push(data);
+    });
   }
-  //TODO  HTTP DELETE IMG
 
   //TODO  Redireccion a la vista en donde se encuentra el formulario de editar
   GoToeditImg() {
@@ -38,8 +37,16 @@ export class SummaryComponent implements OnInit {
   }
 
   //TODO ////////////////////////////// Dialog Ts //////////////////////////////////////
-  veredicto: boolean;
 
+  //TODO  HTTP DELETE IMG
+  veredicto: boolean;
+  response = [];
+  deleteRequest() {
+    this._uploadFileService.deleteData(this.id).subscribe((res) => {
+      this.response.push(res);
+      this.router.navigate(['/']);
+    });
+  }
   deleteImg(): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
@@ -48,15 +55,10 @@ export class SummaryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.veredicto = result;
-      console.log('The dialog was closed: ' + result);
-      if(this.veredicto){
-        this._uploadFileService.deleteData(this.id);
-        console.log("eliminado con exito")
-      }else{
-        console.log("No se pudo eliminar la imagen")
+      if (this.veredicto) {
+        this.deleteRequest();
       }
     });
-    
   }
 }
 export interface DialogData {
@@ -71,9 +73,11 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'delete-dialog-component',
   templateUrl: 'delete-dialog.component.html',
+  styleUrls: ['./summary.component.css'],
 })
 export class DeleteDialogComponent {
   constructor(

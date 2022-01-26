@@ -1,14 +1,22 @@
-.card-place {
+.cards-container{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
+}
+.card-place {
+  margin: 2.5% 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-self: center;
+  gap: 20px;
+  justify-content: center;
+
 }
 
 mat-card {
   width: 200px;
   height: 300px;
-  margin: 10px;
+  margin: 0;
   padding: 0;
   background-color: #3e4b5f;
   color: white;
@@ -20,8 +28,7 @@ mat-card:hover {
 
 @media (max-width: 720px) {
   mat-card {
-    width: 150px;
-    height: auto;
+
   }
 }
 
@@ -35,6 +42,9 @@ mat-card-content img {
   height: 240px;
   width: auto;
   margin-bottom: 20px;
+  object-fit: contain;
+  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 .img-title {
   overflow: hidden;

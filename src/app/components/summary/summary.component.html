@@ -1,39 +1,44 @@
-<div class="summary">
+<div class="summary" *ngIf="imgn.length !== 0; else noData">
   <mat-card>
     <mat-card-title> Detalles de la imagen </mat-card-title>
-    <mat-card-content>
+    <mat-card-content *ngFor="let key of imgn">
       <div class="img-section">
-        <div>
-          <img src="../../../assets/loader.gif" width="200px" />
-        </div>
+        <img class="img" src="{{ key.url }}" />
+        <button mat-stroked-button class="mat-download">
+          <a href="{{ key.url }}">Descargar</a>
+          <mat-icon>arrow_downward</mat-icon>
+        </button>
       </div>
-
       <div class="text-section">
-        <div *ngFor="let key of objectKeys(imgn)">
-          <b>{{ key }}</b>
-          <p>{{ imgn[key] }}</p>
-        </div>
+        <p><b>ID: </b>{{ key.id }}</p>
+        <p><b>Nombre Archivo: </b>{{ key.name }}</p>
+        <p><b>Titulo: </b>{{ key.title }}</p>
+        <p><b>Description: </b>{{ key.description }}</p>
+        <p><b>Tipo de Archivo: </b>{{ key.type }}</p>
+        <p><b>Tamaño: </b>{{ key.size }} bytes</p>
+        <p>
+          <b>Fecha de Creacion: </b
+          >{{ key.created_at | date: "medium":"-0300" }}
+        </p>
+        <p>
+          <b>Fecha de actualizacion: </b
+          >{{ key.updated_at | date: "medium":"-0300" }}
+        </p>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <!-- ! Pendiente: Implementar ruta de edicion con la vista correspondiente -->
-      <button mat-raised-button class="mat-edit" (click)="GoToeditImg()">
-        Editar
-      </button>
-      <!-- ! Pendiente: Implementar Modal de confirmacion para DELETE -->
-      <button mat-raised-button class="mat-delete" (click)="deleteImg()">
-        Borrar
-      </button>
+      <div class="card-content-div">
+        <button mat-raised-button class="mat-edit" (click)="GoToeditImg()">
+          Editar
+        </button>
+        <button mat-raised-button class="mat-delete" (click)="deleteImg()">
+          Borrar
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>
 
-<ng-template #noData>
-  <mat-card>
-    <mat-card-content>
-      <p>no se que pasó bro sorry</p>
-    </mat-card-content>
-  </mat-card>
+<ng-template #noData class="summary">
+  <app-loader></app-loader>
 </ng-template>
-
-
