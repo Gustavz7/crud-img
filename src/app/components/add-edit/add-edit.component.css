@@ -1,30 +1,28 @@
 .form {
-  color: black;
+
   width: 70%;
   height: auto;
-  margin: auto;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  position: relative;
-  z-index: 10;
-  box-shadow: 15px 15px 20px rgba(0,0,0,0.5);
-
+  margin: 10% auto;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.5);
 }
 .img-preview {
   display: flex;
   justify-content: center;
   min-width: 100px;
+  filter: invert(100%);
 }
 .img {
   width: 100px;
   max-height: 100px;
+
+}
+.img-ok {
+  filter: invert(0%);
 }
 mat-card {
-    background: #abbaab;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffffff, #afabba);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffffff, #afb0be);
- /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+  color: white!important;
+  background-color: rgba(109, 109, 109, 0.1);
+  border: 1px solid rgba(158, 158, 158, 0.3);
 }
 .mat-card-title {
   margin-top: 20px;
@@ -44,6 +42,8 @@ mat-card {
   padding-right: 10px;
 }
 .form-text {
+  color: white;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,8 +51,21 @@ mat-card {
   padding-left: 10px;
 }
 
-.form-text {
-  width: 70%;
+::ng-deep .mat-form-field-outline {
+    color: rgb(247, 247, 247)!important;
+
+}
+
+::ng-deep .mat-form-field-label {
+    color: rgb(255, 255, 255)!important;
+    
+}
+
+mat-hint{
+  color: rgb(255, 255, 255) !important;
+}
+mat-form-field-hint-wrapper{
+  color: white!important;
 }
 .icon-upload {
   box-sizing: border-box;
@@ -66,7 +79,7 @@ mat-card {
 .mat-back-btn {
   bottom: 0;
   margin-left: 10px;
-  background-color: rgb(180, 0, 0);
+  background-color: #c52132;
   color: white;
 }
 .mat-clear-btn {
@@ -93,25 +106,24 @@ mat-card-content {
   }
   .form-place {
     flex-direction: column;
-  justify-content: center;
-  min-height: 250px;
+    justify-content: center;
+    min-height: 250px;
   }
-  .form-img{
+  .form-img {
     margin: 0;
     padding: 0;
   }
-  .form-text{
+  .form-text {
     margin: 10px 0;
     padding: 0;
     width: auto;
   }
-  
+
   .mat-back-btn {
     margin: 0;
     margin-top: 10px;
-
   }
-  .form-actions{
+  .form-actions {
     margin-top: 10px;
   }
 }

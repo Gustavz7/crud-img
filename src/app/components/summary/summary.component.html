@@ -27,12 +27,14 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <div class="card-content-div">
+      <div class="card-actions-div">
         <button mat-raised-button class="mat-edit" (click)="GoToeditImg()">
           Editar
+          <mat-icon>edit</mat-icon>
         </button>
         <button mat-raised-button class="mat-delete" (click)="deleteImg()">
           Borrar
+          <mat-icon>delete</mat-icon>
         </button>
       </div>
     </mat-card-actions>
@@ -42,3 +44,4 @@
 <ng-template #noData class="summary">
   <app-loader></app-loader>
 </ng-template>
+

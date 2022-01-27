@@ -1,7 +1,32 @@
 .summary {
   width: 80%;
+  margin: 0 auto;
+  margin-top: 7%;
+}
+
+mat-card {
+  color: white;
+  background-color: rgba(109, 109, 109, 0.1);
+  border: 1px solid rgba(158, 158, 158, 0.3);
+  max-height: 60%;
+}
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 20px 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.img-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 2%;
+  max-height: 60%;
+  max-width: 60%;
   margin: auto;
-  margin-top: 20px;
 }
 .img {
   height: auto;
@@ -10,53 +35,30 @@
   object-fit: contain;
   max-height: 300px;
   max-width: 500px;
-
-}
-
-.img-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-right: 2%;
-  max-height: 60%;
-  margin: auto;
-  max-width: 80%;
 }
 .text-section {
   margin-left: 2%;
+  font-size: 15px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
   max-width: 80%;
+  min-width: 50%;
 }
-mat-card {
-  color: white;
-  background-color: #3e4b5f;
-  max-height: 60%;
-}
-mat-card-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 20px 10px;
-  margin-bottom: 10px;
-}
-.card-content-div {
+
+.card-actions-div {
   margin-left: 10px;
+  color: white;
 }
 
 .mat-delete {
-  background-color: rgb(201, 29, 29);
+  background-color: #c52132;
+  color: white;
 }
 .mat-edit {
-  background-color: rgb(255, 239, 16);
+  background-color: #da8114;
+  color: white;
 }
-.btn-cancelar {
-  background-color: rgb(201, 29, 29);
-}
-.btn-borrar {
-  background-color: rgb(255, 239, 16);
-}
+
 
 @media (max-width: 1032px) {
   mat-card-content {
@@ -71,15 +73,22 @@ mat-card-content {
 }
 
 .mat-download {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(71, 71, 71, 0.973);
   cursor: pointer;
 }
 .mat-download:hover {
-  background-color: rgba(139, 139, 139, 0.4);
-
-
+  background-color: rgb(102, 102, 102);
 }
 .mat-download a {
   color: white;
   text-decoration: none;
+}
+
+
+@media (max-width: 620px) {
+  .summary {
+    width: 100%;
+    margin: 0;
+    margin-top: 15%;
+  }
 }

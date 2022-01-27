@@ -14,8 +14,8 @@
         [formGroup]="uploadForm"
         (ngSubmit)="onSubmit()"
       >
-        <div class="form-img">
-          <div class="img-preview" *ngIf="img_ready; else NoImgSelected">
+        <div class="form-img ">
+          <div class="img-preview img-ok" *ngIf="img_ready; else NoImgSelected">
             <img
               class="img"
               src="../../../assets/selected_img.png"
@@ -24,7 +24,7 @@
           </div>
 
           <ng-template #NoImgSelected>
-            <div class="img-preview">
+            <div class="img-preview ">
               <img
                 class="img"
                 src="../../../assets/upload.png"
