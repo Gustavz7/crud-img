@@ -76,6 +76,7 @@ mat-sidenav {
   display: flex;
   flex-direction: column;
 }
+
 .sidenav-item {
   text-align: center;
   color: white;
@@ -95,7 +96,7 @@ mat-sidenav {
 .sidenav-divider{
   height: 2px;
   width: 80%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.3);
   margin: 0 auto;
 }
 .side-nav-ico{
