@@ -1,5 +1,14 @@
 # CrudImg
 
+Este proyecto de angular 13 lista imagenes, las cuales son consumidas a travez de API REST desde un backend SpringBoot, cumple todas las funcionalidades CRUD
+
+
+
+
+
+TODO: GIT AUTO GENERATED:
+__________________________________________________________________________________________________________________-
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
