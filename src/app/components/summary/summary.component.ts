@@ -21,7 +21,7 @@ export class SummaryComponent implements OnInit {
 
   //TODO  HTTP GET INFO
   getInfoImg() {
-    this._uploadFileService.getPosts(this.id).subscribe((data) => {
+    this._uploadFileService.getFile(this.id).subscribe((data) => {
       this.imgn.push(data);
     });
   }

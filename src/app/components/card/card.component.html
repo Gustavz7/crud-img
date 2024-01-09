@@ -1,12 +1,7 @@
 <div class="cards-container">
-  <div
-    
-    class="card-place"
-    *ngIf="fileInfos.length !== 0; else noImages"
-  >
+  <div class="card-place" *ngIf="fileInfos.length !== 0; else noImages">
     <mat-card
-    matRipple
-    
+      matRipple
       *ngFor="let file of fileInfos"
       (click)="goToDetails(file.id)"
       routerLink="/summary-photo"

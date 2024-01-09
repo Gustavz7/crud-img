@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { IformData } from '../models/iform-data';
 
@@ -9,17 +9,26 @@ import { IformData } from '../models/iform-data';
 export class UploadFileService {
   private baseUrl = '/api';
 
-
   constructor(private http: HttpClient) {
 
   }
 
   //TODO: HTTP GET
   getAllData(): Observable<IformData[]> {
-    return this.http.get<IformData[]>(`${this.baseUrl}/files`);
+    return this.http.get<IformData[]>(`${this.baseUrl}/files`)
+      .pipe(
+        catchError(error => {
+          //console.error("error " + error.status + " en la url: " + error.url);
+          throw 'Ocurrió un error al procesar la solicitud.';
+        })
+      );
+  }
+  getLocalDummyData(): Observable<any[]> {
+
+    return this.http.get<IformData[]>('assets/data/localAux.json')
   }
 
-  public getPosts(id): Observable<IformData[]> {
+  public getFile(id): Observable<IformData[]> {
     return this.http.get<IformData[]>(`${this.baseUrl}/files/${id}`);
   }
 
